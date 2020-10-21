@@ -3,8 +3,8 @@ import Unsplash from 'unsplash-js';
 
 // Инициализация
 export const unsplash = new Unsplash({
-    accessKey: "ACCESS",
-    secret: "SECRET",
+    accessKey: "TvkW3-_9qa8mcXsBj40bp_TxfmMvfgZcySvmOgyYI8U",
+    secret: "K_QCAQZHMe-hpspkRPy4QUPX1Ddf3R30DYoZI8A1J-k",
     callbackUrl: "http://localhost:3000/Home",
   });
 

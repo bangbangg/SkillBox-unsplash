@@ -1,6 +1,6 @@
-import React, {useState,useContext} from 'react';
+import React, {useContext} from 'react';
 import {useParams,useHistory} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import Unsplash from 'unsplash-js';
 
 import {likePhoto} from "../apI/unsplash"
@@ -10,20 +10,15 @@ import { AuthContext } from '../Context/AuthContext';
 
 
 export const  SinglePhoto  = () => {
-
+  const dispatch = useDispatch();
   const context = useContext(AuthContext)
   const unsplash= new Unsplash({
-    accessKey: "ACCESS",
-    secret: "SECRET",
+    accessKey: "TvkW3-_9qa8mcXsBj40bp_TxfmMvfgZcySvmOgyYI8U",
+    secret: "K_QCAQZHMe-hpspkRPy4QUPX1Ddf3R30DYoZI8A1J-k",
   });
   unsplash.auth.setBearerToken(context.access_token)
-
-
-  const [count, setCount] = useState(1)
-  let Classes = "like-toggle basic"; 
-  if  (count%2 ===0) {Classes = "like-toggle basic like-active"};
   
- 
+  
   const history = useHistory();
   function goBackHandle() {
     history.goBack();
@@ -33,6 +28,9 @@ export const  SinglePhoto  = () => {
   const images = useSelector(state=> state.fetchedImages )
   const singlePhoto  = images.find(image=>
     image.id === {id}.id) 
+
+  let Classes = "like-toggle basic"; 
+  if  (singlePhoto.liked_by_user) {Classes = "like-toggle basic like-active"};
 
     
 
@@ -44,9 +42,8 @@ export const  SinglePhoto  = () => {
       <div className='like likes'>
         <button className={Classes}
           onClick = {ev=> {
-            likeImageAction(unsplash,singlePhoto,singlePhoto.id)
+            dispatch(likeImageAction(unsplash,singlePhoto,singlePhoto.id))
             likePhoto(unsplash,singlePhoto)
-            setCount(count+1);
             console.log(images)
           }}
         >♥</button>
