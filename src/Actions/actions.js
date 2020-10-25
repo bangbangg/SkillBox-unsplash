@@ -1,4 +1,18 @@
-import {TOGGLE_LIKE, FETCH_IMAGES, LOAD_COUNT} from "./types";
+import {TOGGLE_LIKE, FETCH_IMAGES, LOAD_COUNT,LOGIN,LOGOUT} from "./types";
+
+
+export function login() {
+  return {
+    type: LOGIN
+  }
+}
+
+export function logout() {
+  return {
+    type: LOGOUT
+  }
+}
+
 
 
 export function likeImageAction(unsplash, image, id){

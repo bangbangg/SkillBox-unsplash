@@ -1,11 +1,3 @@
-Перед использованием введите свои
-ACCESS_KEY  / SECRET_KEY в actions.js/unsplash.js/auth.js/single_photo.js , чтоб проверить работу приложения. Для этого необходимо зайти на сайт unsplash., зарегистрироваться,  нажать на "..." слева от профиля, далее API/Developers -> Your APPS и создать бесплатное приложение. Добавив publick_access / write_likes_Access
-
-в редирект URL укажите:
-urn:ietf:wg:oauth:2.0:oob
-http://localhost:3000/Home
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

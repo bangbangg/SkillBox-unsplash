@@ -1,15 +1,17 @@
-import React,{useContext} from 'react'
-import { AuthContext } from '../Context/AuthContext'
+import React from 'react'
+import {useDispatch} from 'react-redux';
+
+import {logout} from '../Actions/actions'
 
 
 export const Heading = () => {
 
-  const auth = useContext(AuthContext)
+  const dispatch = useDispatch();
   return (
     <>
-    <nav class="navbar navbar-light bg-light">
-      <form class="form-inline">
-        <button class="btn btn-outline-success" type="button" onClick = {()=>auth.logout()}>Log Out</button>
+    <nav className="navbar navbar-light bg-light">
+      <form className="form-inline">
+        <button className="btn btn-outline-success" type="button" onClick = {()=>dispatch(logout())}>Log Out</button>
       </form>
     </nav>
     <header className = "headContainer">

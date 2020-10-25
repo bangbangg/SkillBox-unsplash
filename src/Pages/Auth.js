@@ -1,33 +1,21 @@
-import React, {useContext}   from 'react';
-import Unsplash from 'unsplash-js';
+import React from 'react';
+import {unsplash,identifyUser} from "../apI/unsplash"
 
-import { AuthContext } from '../Context/AuthContext';
+
 import {Loader} from '../Helpers/Loader';
+import {login} from '../Actions/actions';
+import {useDispatch} from 'react-redux';
 
 export const AuthPG = () => { //страница , на которую перекидывает после перехода на Ансплеш для авторизации.
 //если пользователь прошел авторизацию - ему покажет лоадер и переведет на галерею (авторизация определяется по наличию токена в localstorage)
-const auth = useContext(AuthContext);
 
+  const dispatch = useDispatch();
+  identifyUser(unsplash);
 
-const unsplash= new Unsplash({
-    accessKey: "TvkW3-_9qa8mcXsBj40bp_TxfmMvfgZcySvmOgyYI8U",
-    secret: "K_QCAQZHMe-hpspkRPy4QUPX1Ddf3R30DYoZI8A1J-k",
-    callbackUrl: "http://localhost:3000/Home",
-  });
-  
-  const code = window.location.search.split('code=')[1];
-  console.log(code)
+  const data = JSON.parse(localStorage.getItem("user_info"))
 
-  if (code) {
-    unsplash.auth.userAuthentication(code)
-    
-    .then (res=>
-      res.json())
-    .then (json=>{
-      console.log(json.access_token);
-      console.log(json.refresh_token);
-      auth.login(json.access_token, json.refresh_token);
-    })
+  if (data && data.access_token) {
+    dispatch(login())
   }
 
   return (

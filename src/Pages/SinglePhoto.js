@@ -1,24 +1,17 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {useParams,useHistory} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
-import Unsplash from 'unsplash-js';
 
-import {likePhoto} from "../apI/unsplash"
+
+import {likePhoto, unsplash} from "../apI/unsplash"
 import {likeImageAction} from '../Actions/actions'
-import { AuthContext } from '../Context/AuthContext';
+
 
 
 
 export const  SinglePhoto  = () => {
   const dispatch = useDispatch();
-  const context = useContext(AuthContext)
-  const unsplash= new Unsplash({
-    accessKey: "TvkW3-_9qa8mcXsBj40bp_TxfmMvfgZcySvmOgyYI8U",
-    secret: "K_QCAQZHMe-hpspkRPy4QUPX1Ddf3R30DYoZI8A1J-k",
-  });
-  unsplash.auth.setBearerToken(context.access_token)
-  
-  
+    
   const history = useHistory();
   function goBackHandle() {
     history.goBack();
