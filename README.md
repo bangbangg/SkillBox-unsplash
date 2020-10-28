@@ -1,21 +1,6 @@
 Для корректной работы приложения введие свой 
 access_key / secret_key в Api/unsplash.js и  access_key в actions.js
 
-*API/Unsplash.js*
-export const unsplash = new Unsplash({
-    accessKey: "_ACCESS_",
-    secret: "_SECRET_",
-    callbackUrl: "http://localhost:3000/Home",
-  });
-
-*Actions*
-export function fetchImages() { 
-  return async dispatch => { 
-    const apiRoot = "https://api.unsplash.com";
-    const response = await fetch (`${apiRoot}/photos/random?client_id=_ACCESS_&count=10`) 
-
-
-
 Для того, чтоб получить их, вам необходимо зарегистрироваться на сайте unsplash.com
 Нажать на кнопку "..."  и в выпадающем списке выбрать API/Developers
 далее необходимо нажать на кнопку Your APPS

@@ -4,15 +4,22 @@ import {Provider} from 'react-redux';
 import {createStore,compose,applyMiddleware} from 'redux';
 import App from './App';
 import thunk from 'redux-thunk';
+import { loadState, saveState } from './Helpers/localStorage';
 import { imagesReducer } from './Reducers/ImagesReducer';
 import * as serviceWorker from './serviceWorker';
 import './styles/style.css';
 
-const store = createStore(imagesReducer, compose(
+const persistedState = loadState();
+
+const store = createStore(imagesReducer,persistedState, compose(
   applyMiddleware (
     thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() //подключил редакс.девтулс в браузере
 ))
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
 const app = (
   <Provider store = {store}>

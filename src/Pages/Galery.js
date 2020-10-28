@@ -1,18 +1,11 @@
-import React   from 'react';
-import {Loader} from '../Helpers/Loader';
-import {UnsplashImages} from '../Helpers/galeryDetails';
-import {fetchImages} from '../Actions/actions'
-
-
+import React from 'react';
 import styled from 'styled-components';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import {useDispatch,useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-
-
-
-
-
+import { Loader } from '../components/Loader';
+import { Gallery } from '../components/galeryDetails';
+import { fetchImages } from '../Actions/actions';
 
 const WrapperImage = styled.section`
   max-width:70rem;
@@ -25,49 +18,40 @@ const WrapperImage = styled.section`
 
 export const ImagesList = () => {
 
-  
-  
-
   const dispatch = useDispatch();
-  const images = useSelector(state=> state.fetchedImages )
-  const counter = useSelector(state=>state.load_count)
- 
+  const images = useSelector((state) => state.fetchedImages);
+  const counter = useSelector((state) => state.load_count);
 
- if (images.length === 0 ){
- dispatch(fetchImages())};
- 
-
-
-
+  if (images.length === 0) {
+    dispatch(fetchImages());
+  }
 
   return (
-   <div>
+    <div>
       <InfiniteScroll
-       dataLength = {counter}
-       next = {()=>dispatch(fetchImages())}
-       hasMore = {true}
-       loader = { <Loader/>}
+       dataLength={counter}
+       next={() => dispatch(fetchImages())}
+       hasMore={true}
+       loader={<Loader/>}
       >
-      <div className = "point">
+      <div className="point">
       <WrapperImage>
-        {images.map(image=> ( 
-          <UnsplashImages  
-            url = {image.urls.regular} 
-            key = {image.id + Math.random()} 
-            id = {image.id} 
-            little_photo = {image.user.profile_image.small}
-            userName = {image.user.name}
-            likes = {image.likes}
-            user_link = {image.user.links.html}
-            img_date = {image.updated_at}
+        { images.map(image => (
+          <Gallery
+            url={image.urls.regular}
+            key={image.id + Math.random()}
+            id={image.id}
+            little_photo={image.user.profile_image.small}
+            userName={image.user.name}
+            likes={image.likes}
+            user_link={image.user.links.html}
+            img_date={image.updated_at}
           />
         ))}
       </WrapperImage>
       </div>
       </InfiniteScroll>
-      <button className="bot8" onClick={()=>dispatch(fetchImages())}>next photos</button>
+      <button className="bot8" onClick={() => dispatch(fetchImages())}>next photos</button>
     </div>
-  )
-}
-
-
+  );
+};

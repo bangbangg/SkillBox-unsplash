@@ -2,7 +2,7 @@ import React from 'react';
 import {unsplash,identifyUser} from "../apI/unsplash"
 
 
-import {Loader} from '../Helpers/Loader';
+import {Loader} from '../components/Loader';
 import {login} from '../Actions/actions';
 import {useDispatch} from 'react-redux';
 
@@ -12,11 +12,7 @@ export const AuthPG = () => { //страница , на которую пере�
   const dispatch = useDispatch();
   identifyUser(unsplash);
 
-  const data = JSON.parse(localStorage.getItem("user_info"))
-
-  if (data && data.access_token) {
-    dispatch(login())
-  }
+  dispatch(login());
 
   return (
       <div className = "reg_pg">

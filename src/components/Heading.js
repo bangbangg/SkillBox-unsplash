@@ -11,7 +11,7 @@ export const Heading = () => {
     <>
     <nav className="navbar navbar-light bg-light">
       <form className="form-inline">
-        <button className="btn btn-outline-success" type="button" onClick = {()=>dispatch(logout())}>Log Out</button>
+        <button className="btn btn-secondary " type="button" onClick = {()=>dispatch(logout())}>Log Out</button>
       </form>
     </nav>
     <header className = "headContainer">

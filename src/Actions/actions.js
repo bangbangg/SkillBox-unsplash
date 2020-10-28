@@ -38,7 +38,7 @@ export function imageLoad() {
 export function fetchImages() { 
   return async dispatch => { 
     const apiRoot = "https://api.unsplash.com";
-    const response = await fetch (`${apiRoot}/photos/random?client_id=_ACCESS_&count=10`) 
+    const response = await fetch (`${apiRoot}/photos/random?client_id=TvkW3-_9qa8mcXsBj40bp_TxfmMvfgZcySvmOgyYI8U&count=10`) 
     const json  = await response.json()
       dispatch({type: FETCH_IMAGES, payload:json}) 
       dispatch (imageLoad())

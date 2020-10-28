@@ -1,32 +1,21 @@
 import React from 'react';
 import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
-import {createGlobalStyle} from 'styled-components';
+
 
 import {ImagesList} from './Galery'
-import {Heading} from '../Helpers/Heading';
+import {Heading} from '../components/Heading';
 import {SinglePhoto} from './SinglePhoto';
-import {UnregisterPage} from './unregistred';
+import {UnregisterPage} from './UnregistredPage';
 import {AuthPG} from './Auth'
 
-const GlobalStyle = createGlobalStyle`
-*{
-  margin:2px;
-  padding:0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-}
-`;
 
 
-export const useRouters = isAuthenticated => {
-  if (isAuthenticated) {
+
+export const useRouters = (isAuthenticated) => {
+  if (isAuthenticated ) {
     return (
     <Router>
     <Heading className = "heading"/>
-    <GlobalStyle/>
     <Switch>
       <Route path="/" exact component = {ImagesList} />
       <Route path="/SinglePhoto:id" component = {SinglePhoto} />
@@ -38,7 +27,6 @@ export const useRouters = isAuthenticated => {
 
     return (
     <Router>
-    <GlobalStyle/>
     <Switch>
       <Route path="/" exact component = {UnregisterPage} />
       <Route path="/Home" exact component = {AuthPG} />
