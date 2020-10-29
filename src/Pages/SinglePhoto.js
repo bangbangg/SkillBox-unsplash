@@ -12,8 +12,8 @@ import {likeImageAction} from '../Actions/actions'
 
 
 export const  SinglePhoto  = () => {
-  const dispatch = useDispatch();
-    
+  const dispatch=useDispatch();
+
   const history = useHistory();
   function goBackHandle() {
     history.goBack();

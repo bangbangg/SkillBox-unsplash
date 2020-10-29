@@ -1,5 +1,5 @@
-import {TOGGLE_LIKE,FETCH_IMAGES,LOAD_COUNT,LOGIN,LOGOUT} from '../Actions/types'
-import {getUniqueListBy} from "../Helpers/arrFilter"
+import { TOGGLE_LIKE,FETCH_IMAGES,LOAD_COUNT,LOGIN,LOGOUT } from '../Actions/types'
+import { getUniqueListBy } from "../Helpers/arrFilter"
 
 const initialState = {
   fetchedImages: [],
@@ -15,9 +15,9 @@ export const imagesReducer = (state = initialState, action) => {
       return {...state, isAuthorized: true}
     case LOGOUT:
       return {...state, isAuthorized: false}
-    case FETCH_IMAGES: 
-      return {...state, fetchedImages: getUniqueListBy((state.fetchedImages.concat( action.payload)),'id')}
-    case LOAD_COUNT: 
+    case FETCH_IMAGES:
+      return {...state, fetchedImages: getUniqueListBy((state.fetchedImages.concat(action.payload)),'id')}
+    case LOAD_COUNT:
       return {...state, load_count: state.load_count + 10}
     case TOGGLE_LIKE:
       let new_state = state.fetchedImages.map(image => {
@@ -31,7 +31,7 @@ export const imagesReducer = (state = initialState, action) => {
           } return image;
         } return image;
       });
-      return {...state,fetchedImages: new_state }
+      return {...state,fetchedImages: new_state}
     default: return state
   }
 }

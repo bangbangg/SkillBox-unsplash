@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { loadState, saveState } from './Helpers/localStorage';
 import { imagesReducer } from './Reducers/ImagesReducer';
 import * as serviceWorker from './serviceWorker';
-import './styles/style.css';
+import './styles/style.scss';
 
 const persistedState = loadState();
 

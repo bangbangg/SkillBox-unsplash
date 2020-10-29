@@ -1,4 +1,4 @@
-import {TOGGLE_LIKE, FETCH_IMAGES, LOAD_COUNT,LOGIN,LOGOUT} from "./types";
+import { TOGGLE_LIKE, FETCH_IMAGES, LOAD_COUNT,LOGIN,LOGOUT } from "./types";
 
 
 export function login() {
@@ -13,8 +13,6 @@ export function logout() {
   }
 }
 
-
-
 export function likeImageAction(unsplash, image, id){
   return {
       type: TOGGLE_LIKE,
@@ -26,7 +24,6 @@ export function likeImageAction(unsplash, image, id){
 лайков , после чего изображение возвращается в массив изображений с внесенными изменениями
 */
 
-
 export function imageLoad() {
   return {
     type: LOAD_COUNT,
@@ -35,15 +32,15 @@ export function imageLoad() {
 }
 // вспомогательный экшон для react-inifinity-scroll 
 
-export function fetchImages() { 
-  return async dispatch => { 
+export function fetchImages() {
+  return async dispatch => {
     const apiRoot = "https://api.unsplash.com";
-    const response = await fetch (`${apiRoot}/photos/random?client_id=TvkW3-_9qa8mcXsBj40bp_TxfmMvfgZcySvmOgyYI8U&count=10`) 
+    const response = await fetch (`${apiRoot}/photos/random?client_id=TvkW3-_9qa8mcXsBj40bp_TxfmMvfgZcySvmOgyYI8U&count=10`)
     const json  = await response.json()
-      dispatch({type: FETCH_IMAGES, payload:json}) 
+      dispatch({type: FETCH_IMAGES, payload:json})
       dispatch (imageLoad())
       console.log(json)
-    }
+  }
 }
 
 // добавляет фотографии в галерею.
