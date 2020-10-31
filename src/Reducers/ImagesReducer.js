@@ -9,7 +9,7 @@ const initialState = {
 
 
 
-export const imagesReducer = (state = initialState, action) => {
+export const imagesReducer = (state=initialState, action) => {
   switch(action.type) {
     case LOGIN:
       return {...state, isAuthorized: true}
@@ -21,17 +21,17 @@ export const imagesReducer = (state = initialState, action) => {
       return {...state, load_count: state.load_count + 10}
     case TOGGLE_LIKE:
       let new_state = state.fetchedImages.map(image => {
-        if(image.id === action.id) {
-          if (image.liked_by_user === true) {
-            image.liked_by_user = false;
+        if(image.id===action.id) {
+          if (image.liked_by_user===true) {
+            image.liked_by_user=false;
             image.likes--;
-          }else if (image.liked_by_user === false) {
-            image.liked_by_user = true;
+          }else if (image.liked_by_user===false) {
+            image.liked_by_user=true;
             image.likes++;
           } return image;
         } return image;
       });
       return {...state,fetchedImages: new_state}
     default: return state
-  }
-}
+  };
+};

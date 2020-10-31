@@ -1,0 +1,48 @@
+$font : 'Amatic SC', cursive;
+
+@mixin mainRules($pos,$top,$left) {
+  position: $pos;
+  top: $top;
+  left: $left;
+}
+
+@mixin anotherRules($pos,$fz,$clr,$top) {
+  font-size: $fz;
+  color: $clr;
+  position: $pos;
+  top: $top;
+}
+
+@mixin UnregMix($wd,$hg) {
+  width: $wd;
+  height: $hg;
+}
+
+@mixin Background($bi,$br,$bp,$bs) {
+  background-image: $bi;
+  background-repeat: $br;
+  background-position: $bp;
+  background-size: $bs;
+}
+
+@mixin SphMixin($mw,$pt,$pb) {
+  max-width: $mw;
+  padding-top: $pt;
+  padding-bottom: $pb;
+}
+
+@mixin MwFs($mw,$fz) {
+  max-width: $mw;
+  font-size: $fz;
+}
+
+@mixin PosMw($pos,$mw) {
+  position: $pos;
+  max-width: $mw;
+}
+
+@mixin PtPbBc($pt,$pb,$bc) {
+  padding-top: $pt;
+  padding-bottom: $pb;
+  background-color: $bc;
+}

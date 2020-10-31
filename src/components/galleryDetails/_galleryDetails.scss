@@ -1,0 +1,58 @@
+@import '../styles/mixins';
+
+$pos1 : absolute;
+$pos2 : relative;
+$brd : 1px solid;
+
+
+.img_container {
+  position: $pos2;
+
+    .likes_count {
+      @include anotherRules($pos1,15px,black,30px);
+      right:0px;
+    }
+
+      .red {
+        color: red;
+      }
+
+    .little_ph {
+      @include mainRules($pos1,383px,8px);
+      border: $brd #ffffff;
+      border-radius: 20px;
+    }
+    
+    .little_date {
+      @include mainRules($pos1,35px,15px);
+      color: black;
+      font-size: 12px;
+    } 
+
+      .list_user_name {
+        @include anotherRules($pos2,small,black,383px);
+        left: 42px;
+      }
+
+  
+  .img_styles {
+    @include PtPbBc(30px,50px,white);
+    box-sizing: border-box;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }  
+
+  .hover { 
+    &:hover {
+      border:$brd black;
+    }
+  }
+}
+
+.hide_info {
+  opacity: 0;
+}
+
+
+

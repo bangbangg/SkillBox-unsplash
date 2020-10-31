@@ -1,0 +1,111 @@
+@import '../styles/media_mixin.scss';
+@import '../styles/mixins';
+
+.flex {
+  @include PosMw(relative,800px);
+  @include PtPbBc(55px,55px,white);
+  display:flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 0 auto;
+
+  @include _1200{
+    @include SphMixin(700px,50px,50px);
+  }
+  @include _992{
+    @include SphMixin(600px,45px,45px);
+  }
+  @include _767{
+    @include SphMixin(none,40px,40px);
+  }
+
+  .likes {
+    font-family: $font;
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+
+    @include _1200{
+      font-size: 17px;
+    }
+    @include _992{
+      font-size: 15px;
+    }
+    @include _767{
+      font-size: 12px;
+    }
+
+      .like-active{
+        background: #7CC576;
+        color: white;
+      }
+
+      .like-toggle{
+        @include UnregMix(35px,35px);
+        outline:none;
+        box-shadow:none;
+        border: none;
+        font-size: 20px;
+        border-radius: 100px;
+      }
+
+      .like_count {
+        width:100px;
+      }
+  }
+  
+    .link {
+      @include anotherRules(absolute,20px,black,0px);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      max-width: 190px;
+      left: 0px;
+
+      @include _1200{
+        @include MwFs(180px,17px);
+      }
+      @include _992{
+        @include MwFs(170px,15px);
+      }
+      @include _767{
+        @include MwFs(160px,12px);
+      }
+
+      .ava {
+        display: inline-block;
+        border: 1px solid black;
+        border-radius: 45px;
+      }
+    } 
+  
+  .image {
+    @include PosMw(relative,100%);
+    max-height:50%;
+    margin: 0 auto;
+    background-color: white;
+  }
+
+  .post_date {
+    @include PosMw(absolute,120px);
+    font-size: 20px;
+    right: 5px;
+    top: 5px;
+
+    @include _1200{
+      @include MwFs(110px,17px);
+    }
+    @include _992{
+      @include MwFs(100px,15px);
+    }
+    @include _767{
+      @include MwFs(90px,12px);
+    }
+  }
+}

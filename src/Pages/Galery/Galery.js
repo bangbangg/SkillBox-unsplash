@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Loader } from '../components/Loader';
-import { Gallery } from '../components/galeryDetails';
-import { fetchImages } from '../Actions/actions';
+import { Loader } from '../../components/Loader/Loader';
+import { Gallery } from '../../components/galleryDetails/galleryDetails';
+import { fetchImages } from '../../Actions/actions';
 
 const WrapperImage = styled.section`
   max-width:70rem;
@@ -18,9 +18,9 @@ const WrapperImage = styled.section`
 
 export const ImagesList = () => {
 
-  const dispatch = useDispatch();
-  const images = useSelector((state) => state.fetchedImages);
-  const counter = useSelector((state) => state.load_count);
+  const dispatch=useDispatch();
+  const images=useSelector((state) => state.fetchedImages);
+  const counter=useSelector((state) => state.load_count);
 
   if (images.length === 0) {
     dispatch(fetchImages());

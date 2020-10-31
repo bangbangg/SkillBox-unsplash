@@ -26,18 +26,19 @@ export const Gallery  = ({url,little_photo,userName,likes,user_link,img_date,id}
   return (
   <span className="img_container" onMouseEnter={MouseIn} onMouseLeave  = {MouseOver}>
     <div className={hidden}>
-    <span className="likes_count"> <span className = "red">♥  </span>{likes}</span>
-    <span className="little_date">{img_date.slice(0,10)}</span>
-    <img className="little_ph" src = {little_photo} alt= "user_photo"/>
-    <a className="no_line " href={user_link}>
-      <span className="list_user_name">{userName}</span>
-    </a>
+      <span className="likes_count"> <span className = "red">♥  </span>{likes}</span>
+      <span className="little_date">{img_date.slice(0,10)}</span>
+      <img className="little_ph" src = {little_photo} alt= "user_photo"/>
+      <a  href={user_link}>
+        <span className="list_user_name">{userName}</span>
+      </a>
     </div>
-      <LazyLoadImage
-       className="hover img_styles"
-       onClick={handleClick}
-       src={url}
-       alt=''/>
+    <LazyLoadImage
+      className="hover img_styles"
+      onClick={handleClick}
+      src={url}
+      alt=''
+    />
   </span>
   );
 };

@@ -1,0 +1,18 @@
+@import '../styles/media_mixin.scss';
+
+.reg_pg {
+  margin: 0 auto;
+  margin-top: 15%;
+
+  @include _1200{
+    margin-top: 37%;
+  }
+
+  @include _992{
+    margin-top: 38%;
+  }
+
+  @include _767{
+    margin-top: 40%;
+  }
+}

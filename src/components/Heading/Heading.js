@@ -1,7 +1,7 @@
 import React from 'react'
 import {useDispatch} from 'react-redux';
 
-import {logout} from '../Actions/actions'
+import {logout} from '../../Actions/actions'
 
 
 export const Heading = () => {
@@ -11,12 +11,12 @@ export const Heading = () => {
     <>
     <nav className="navbar navbar-light bg-light">
       <form className="form-inline">
-        <button className="btn btn-secondary " type="button" onClick = {()=>dispatch(logout())}>Log Out</button>
+        <button className="btn btn-secondary" type="button" onClick = {()=>dispatch(logout())}>Log Out</button>
       </form>
     </nav>
     <header className = "headContainer">
       <h1 className = "head">Unsplash</h1>
-      <p>Just random images from all over the world</p>
+      <p className = "head">Just random images from all over the world</p>
     </header>
     </>
   )

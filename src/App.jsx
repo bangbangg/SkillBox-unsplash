@@ -1,11 +1,10 @@
 import React from 'react';
-
 import { useSelector } from 'react-redux';
-import { useRouters } from './Pages/Router'
 
+import { useRouters } from './Pages/Router/Router'
 
 function App() {
-  const isAuthenticated = useSelector(state=>state.isAuthorized)
+  const isAuthenticated = useSelector(state => state.isAuthorized);
   const routes = useRouters(isAuthenticated);
 
   return (

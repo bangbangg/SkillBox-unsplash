@@ -1,0 +1,26 @@
+@import '../styles/media_mixin.scss';
+@import '../styles/mixins';
+
+.headContainer {
+  max-width:1200px;
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 40px;
+
+  .head {
+    font-family: 'Amatic SC', cursive;
+    margin-bottom: 1em;
+
+    @include _1200{
+      @include MwFs(970px,30px);
+    }
+
+    @include _992{
+      @include MwFs(750px,25px);
+    }
+
+    @include _767{
+      @include MwFs(none,19px);
+    }
+  }
+}

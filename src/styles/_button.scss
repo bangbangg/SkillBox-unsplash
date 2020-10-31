@@ -1,0 +1,36 @@
+@import './mixins';
+
+.bot8 {
+    background-color: #CCCCCC;
+    border: 1px solid #CCCCCC;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    border-radius: 4px;
+    color: #555555;
+    display:block;
+    min-width:50px;
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: $font;
+    text-align:center;
+    height: 10%;
+    line-height: 20px;
+    margin-bottom: 5%;
+    padding: 4px 6px;
+    text-decoration:none;
+
+    &:focus,
+    &:hover {
+      border-color: rgba(12, 155, 31, 0.74);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(42, 168, 69, 0.6);
+      outline: 0 none;
+    }
+  }
+
+  .main_b {
+    width:110px !important;
+    height:40px !important;
+    font-size: 20px !important;
+    @include Background(url(../img/return.png),no-repeat,center,contain);
+  }
