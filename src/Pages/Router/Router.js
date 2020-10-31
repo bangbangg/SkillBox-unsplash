@@ -8,26 +8,26 @@ import { UnregisterPage } from './../UnregistredPage/UnregistredPage';
 import { AuthPG } from './../Auth/Auth';
 
 export const useRouters = (isAuthenticated) => {
-  if(isAuthenticated ) {
+  if (isAuthenticated) {
     return (
-    <Router>
-    <Heading className="heading"/>
-    <Switch>
-      <Route path="/" exact component={ImagesList}/>
-      <Route path="/SinglePhoto:id" component={SinglePhoto}/>
-      <Redirect to="/"/>
-    </Switch>
-    </Router>
+      <Router>
+        <Heading className="heading"/>
+        <Switch>
+          <Route path="/" exact component={ImagesList}/>
+          <Route path="/SinglePhoto:id" component={SinglePhoto}/>
+          <Redirect to="/"/>
+        </Switch>
+      </Router>
     );
   }
 
     return (
     <Router>
-    <Switch>
-      <Route path="/" exact component={UnregisterPage}/>
-      <Route path="/Home" exact component={AuthPG}/>
-      <Redirect to="/"/>
-    </Switch>
+      <Switch>
+        <Route path="/" exact component={UnregisterPage}/>
+        <Route path="/Home" exact component={AuthPG}/>
+        <Redirect to="/"/>
+      </Switch>
     </Router>
     );
 }

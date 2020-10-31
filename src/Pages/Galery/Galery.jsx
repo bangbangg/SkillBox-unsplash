@@ -18,9 +18,9 @@ const WrapperImage = styled.section`
 
 export const ImagesList = () => {
 
-  const dispatch=useDispatch();
-  const images=useSelector((state) => state.fetchedImages);
-  const counter=useSelector((state) => state.load_count);
+  const dispatch = useDispatch();
+  const images = useSelector((state) => state.fetchedImages);
+  const counter = useSelector((state) => state.load_count);
 
   if (images.length === 0) {
     dispatch(fetchImages());
@@ -29,14 +29,14 @@ export const ImagesList = () => {
   return (
     <div>
       <InfiniteScroll
-       dataLength={counter}
-       next={() => dispatch(fetchImages())}
-       hasMore={true}
-       loader={<Loader/>}
+        dataLength={counter}
+        next={() => dispatch(fetchImages())}
+        hasMore={true}
+        loader={<Loader />}
       >
       <div className="point">
       <WrapperImage>
-        { images.map(image => (
+        { images.map((image) => (
           <Gallery
             url={image.urls.regular}
             key={image.id + Math.random()}
