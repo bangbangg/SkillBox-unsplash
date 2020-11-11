@@ -5,13 +5,11 @@ import { unsplash, identifyUser } from '../../apI/unsplash';
 import { Loader } from '../../components/Loader/Loader';
 import { login } from '../../Actions/actions';
 
-export const AuthPG = () => { /*страница , на которую перекидывает после перехода на Ансплеш для авторизации.
-  если пользователь прошел авторизацию - ему покажет лоадер и переведет на галерею (авторизация определяется 
-  по наличию токена в localstorage) */
+export const AuthPG = () => {
   identifyUser(unsplash);
 
   const dispatch = useDispatch();
-  dispatch(login());
+  setTimeout(() => dispatch(login()), 3500 );
 
   return (
     <div className="reg_pg">

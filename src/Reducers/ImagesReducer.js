@@ -1,14 +1,17 @@
-import { TOGGLE_LIKE, FETCH_IMAGES, LOAD_COUNT, LOGIN, LOGOUT } from '../Actions/types';
+import { TOGGLE_LIKE, FETCH_IMAGES, LOAD_COUNT, LOGIN, LOGOUT, USERINFO } from '../Actions/types';
 import { getUniqueListBy } from '../Helpers/arrFilter';
 
 const initialState = {
   fetchedImages: [],
   load_count: 10,
   isAuthorized: false,
+  userInfo: "",
 };
 
 export const imagesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case USERINFO:
+      return {...state, userInfo: action.payload};
     case LOGIN:
       return { ...state, isAuthorized: true };
     case LOGOUT:

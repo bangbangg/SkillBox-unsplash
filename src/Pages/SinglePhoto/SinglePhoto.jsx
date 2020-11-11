@@ -31,8 +31,8 @@ export const SinglePhoto = () => {
           <div className="likes">
             <button className={Classes}
               onClick={() => {
-                dispatch(likeImageAction(unsplash, singlePhoto, singlePhoto.id));
                 likePhoto(unsplash, singlePhoto);
+                dispatch(likeImageAction(unsplash, singlePhoto, singlePhoto.id));
               }}
             >♥</button>
 
@@ -40,7 +40,7 @@ export const SinglePhoto = () => {
               { `${singlePhoto.likes}` } Likes
             </span>
           </div>
-      
+
           <div>
             <a className="link" href={`${singlePhoto.user.links.html}`}>
               <img className="ava" src={singlePhoto.user.profile_image.small} alt="user_photo" /> {singlePhoto.user.name} <br/>
@@ -57,7 +57,7 @@ export const SinglePhoto = () => {
           </div>
         </div>
 
-        <button className="bot8 main_b" onClick={goBackHandle}></button>
+        <button className="bot8 main_b" onClick={goBackHandle}> Back </button>
       </div>
     </>
   );

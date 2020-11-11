@@ -41,11 +41,11 @@ export const ImagesList = () => {
             url={image.urls.regular}
             key={image.id + Math.random()}
             id={image.id}
-            little_photo={image.user.profile_image.small}
+            littlePhoto={image.user.profile_image.small}
             userName={image.user.name}
             likes={image.likes}
-            user_link={image.user.links.html}
-            img_date={image.updated_at}
+            userLink={image.user.links.html}
+            imgDate={image.updated_at}
           />
         ))}
       </WrapperImage>

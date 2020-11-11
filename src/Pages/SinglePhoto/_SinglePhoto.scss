@@ -59,7 +59,7 @@
         width:100px;
       }
   }
-  
+
     .link {
       @include anotherRules(absolute,20px,black,0px);
       text-decoration: none;
@@ -83,8 +83,8 @@
         border: 1px solid black;
         border-radius: 45px;
       }
-    } 
-  
+    }
+
   .image {
     @include PosMw(relative,100%);
     max-height:50%;

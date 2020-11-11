@@ -5,3 +5,4 @@ export const LOAD_COUNT = 'IMG/LOAD_COUNT';
 export const TOGGLE_LIKE = 'IMG/TOGGLE_LIKE';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const USERINFO = 'USERINFO';

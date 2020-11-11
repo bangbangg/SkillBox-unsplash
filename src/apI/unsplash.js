@@ -2,8 +2,8 @@ import Unsplash from 'unsplash-js';
 
 // Инициализация
 export const unsplash = new Unsplash({
-  accessKey: 'TvkW3-_9qa8mcXsBj40bp_TxfmMvfgZcySvmOgyYI8U',
-  secret: 'K_QCAQZHMe-hpspkRPy4QUPX1Ddf3R30DYoZI8A1J-k',
+  accessKey: '_________________________',
+  secret: '____________________',
   callbackUrl: 'http://localhost:3000/Home',
 });
 
@@ -21,15 +21,15 @@ export const authenticationUnsplash = (unsplash) => {
 };
 
 export const identifyUser = (unsplash) => {
-
   const code = window.location.search.split('code=')[1];
 
   if (code) {
     unsplash.auth.userAuthentication(code)
       .then(res => res.json())
-      .then(json => {localStorage.setItem('user_info', JSON.stringify
-      ({ access_token: json.access_token, refresh_token: json.refresh_token }));
-      unsplash.auth.setBearerToken(json.access_token);
+      .then(json =>{
+        unsplash.auth.setBearerToken(json.access_token);
+        localStorage.setItem('user_info', JSON.stringify
+      ({ access_token: json.access_token, refresh_token: json.refresh_token }))
       });
   }
 };
@@ -44,7 +44,7 @@ export const likePhoto = (unsplash, image) => {
           if (res !== 'Rate Limit Exceeded' && !JSON.parse(res).errors) {
             JSON.parse(res);
           }
-          console.error('Лимит запросов исчерпан!') 
+          console.error('Лимит запросов исчерпан!')
         })
     );
   }

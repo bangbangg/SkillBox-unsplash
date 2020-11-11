@@ -1,6 +1,12 @@
 @import '../styles/media_mixin.scss';
 @import '../styles/mixins';
 
+.user_photo {
+  border-radius: 45px;
+  border: 1px solid gray;
+  margin-right: 5px;
+}
+
 .headContainer {
   max-width:1200px;
   margin: 2rem auto;
