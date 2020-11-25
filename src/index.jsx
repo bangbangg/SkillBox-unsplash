@@ -13,9 +13,7 @@ import './styles/style.scss';
 const persistedState = loadState();
 
 const store = createStore(imagesReducer, persistedState, 
-  applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+  applyMiddleware(thunk));
 
 store.subscribe(() => {
   saveState(store.getState());
