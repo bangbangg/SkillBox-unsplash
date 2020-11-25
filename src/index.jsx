@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import App from './App';
@@ -12,10 +12,10 @@ import './styles/style.scss';
 
 const persistedState = loadState();
 
-const store = createStore(imagesReducer, persistedState, compose(
+const store = createStore(imagesReducer, persistedState, 
   applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-));
+);
 
 store.subscribe(() => {
   saveState(store.getState());
